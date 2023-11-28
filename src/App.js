@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import Work from './work';
+import Usertext from './Usertext';
+import './styles.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function Todolist() {
+    const [items,setitems]=useState([]);
+
+    const additem= (inputText)=>{
+        setitems((previousitem) =>{
+            return[...previousitem,inputText]
+        });
+    };
+
+
+    const deleteitem=(id)=>{
+        setitems((previousitem)=>
+        {
+            return previousitem.filter((item,index)=>
+            {
+                return index!==id;
+            })
+        })
+    };
+
+
+   
+    return(
+        <div className="container">
+            <div className='heading'>
+                <h1>To Do List</h1>
+                </div>
+                <Usertext additem={additem}/>
+                <div>
+                    <ul>
+                        {
+                            items.map((item,index)=>
+                                {
+                                    return(
+                                        <Work key={index} text={item}  deleteitem={deleteitem} id={index}/>
+
+                                    )
+                                })
+                        }
+                    </ul>
+                </div>
+        </div>
+
+    )
 }
 
-export default App;
+export default Todolist;

@@ -1,0 +1,42 @@
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.container {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+
+}
+
+.form>input {
+    font-size: large;
+    border-radius: 10px;
+    border: 5px rgb(23, 23, 23) solid;
+
+}
+
+.form>button {
+    margin-left: 15px;
+    padding: 5px 15px;
+    font-size: large;
+    background-color: rgb(66, 66, 141);
+    border-radius: 20px;
+    color: white;
+    border: 2px white;
+
+}
+
+.itemsspace>li {
+    color: rgb(19, 19, 19);
+    list-style: none;
+    font-size: x-large;
+    text-align: center;
+    padding-right: 200px;
+    font-weight: bolder;
+}
